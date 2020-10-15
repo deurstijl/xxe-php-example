@@ -1,8 +1,12 @@
-<style>
-    .solved{
-        background: yellow;
-    }
-</style>
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>.docx uploader</title>
+</head>
+<body>
+<div align="center">
+<h1>.docx uploader</h1>
 
 <?php
 if(isset($_POST["submit"])) {
@@ -13,12 +17,16 @@ if(isset($_POST["submit"])) {
             $xml = new SimpleXMLElement($result, LIBXML_NOENT);
             $xml->registerXPathNamespace("dc", "http://purl.org/dc/elements/1.1/");
             foreach($xml->xpath('//dc:title') as $title){
-                echo "Title '".$title . "' has been added.<br/>";
+                echo "Title '".$title . "' has been added to the archive.<br/>";
             }
         } catch (Exception $e){
-            echo "The file you uploaded is not a valid xml or docx file.";
+            echo "The file you uploaded is not a valid docx file.";
         }
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
 }
+?>
+</div>
+</body>
+</html>

@@ -4,7 +4,8 @@ MAINTAINER Florian Ammon <@riesenwildschaf>
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y apache2 php5
+    apt-get install -y apt-utils && \
+    apt-get install -y apache2 php php-xml php-simplexml php-zip
 
 # Apache config
 COPY apache2/000-default.conf /etc/apache2/sites-available/000-default.conf

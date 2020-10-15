@@ -1,21 +1,21 @@
-# XXE challenge with docx file
+# XXE example for testing
+## based on https://github.com/fl0rde/xxe-challenge
 
-## install
+# Installation:
 
-* install docker
+## For use on a barebone:
+```
+sudo apt update
+apt install -y docker.io git
+git clone https://github.com/deurstijl/xxe-php.git
+```
 
-## build & run
+## Open the folder that contains the dockerfile
+* run `docker build .`
+* One of the last lines contains `Successfully built 4ba2fe5a2092`. The hash will be used to start the container.
+* For running at port 8080 we use `docker run -p 8080:80 740cd0f55409`
+* For an interactive shell: `docker run -ti -p 8080:80 4ba2fe5a2092 /bin/bash` and start apache with: `apachectl -DFOREGROUND`
 
-* change directory to project folder containing dockerfile and run `docker build .`
-* Last line is like `Successfully built 740cd0f55409`, we need the hash
-* for running at port 8080 we use `docker run -p 8080:80 740cd0f55409`
-* enjoy!
-
-## stopping container
-
-* run `docker ps` and copy very first hash at the left
-* run `docker stop <hash> && docker rm <hash>`
-
-this challenge was presented by me at the MRMCD 2015 in germany
-
-@riesenwildschaf
+## Stop container:
+* Use `docker ps` to copy the hash of the running container
+* `docker stop` to stop the container
