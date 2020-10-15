@@ -1,5 +1,7 @@
 # XXE example for testing
-based on https://github.com/fl0rde/xxe-challenge
+based on https://github.com/fl0rde/xxe-challenge  
+
+It used a docx file to deliver the payload.
 
 ## Installation:
 
