@@ -7,7 +7,7 @@
 <body>
 <div align="center">
 <h1>.docx uploader</h1>
-
+<hr>
 <?php
 if(isset($_POST["submit"])) {
     $target_file = getcwd()."/upload/".md5($_FILES["file"]["tmp_name"]);
@@ -17,7 +17,7 @@ if(isset($_POST["submit"])) {
             $xml = new SimpleXMLElement($result, LIBXML_NOENT);
             $xml->registerXPathNamespace("dc", "http://purl.org/dc/elements/1.1/");
             foreach($xml->xpath('//dc:title') as $title){
-                echo "Title '".$title . "' has been added to the archive.<br/>";
+                echo "Title <b>'".$title ."'</b> has been added to the archive.<br/>";
             }
         } catch (Exception $e){
             echo "The file you uploaded is not a valid docx file.";
